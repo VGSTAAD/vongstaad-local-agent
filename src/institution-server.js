@@ -55,31 +55,68 @@ tokenService = tryLoad('token-service');
 sandboxManager = tryLoad('sandbox-manager');
 
 
-// ── Instantiate classes that need dependencies ──────────────
-if (stateEngine && registry && ledger) {
+// ── Instantiate all modules that are classes ──────────────
+// Graph engine is a singleton – just require it fresh
+try { graph = require('../graph-engine'); } catch(e) { console.warn('graph init failed'); }
+// Registry is a singleton – just require it fresh
+try { registry = require('../registry'); } catch(e) { console.warn('registry init failed'); }
+// Ledger is a singleton
+try { ledger = require('../event-ledger'); } catch(e) { console.warn('ledger init failed'); }
+// StateEngine needs registry and ledger
+if (registry && ledger) {
   try {
-    stateEngine = new (require('../state-engine'))(registry, ledger);
+    const StateEngine = require('../state-engine');
+    stateEngine = new StateEngine(registry, ledger);
   } catch(e) { console.warn('stateEngine init failed'); }
 }
-if (observer && graph && ledger) {
+// Observer needs graph and ledger
+if (graph && ledger) {
   try {
-    observer = new (require('../observer'))(graph, ledger);
+    const InstitutionalObserver = require('../observer');
+    observer = new InstitutionalObserver(graph, ledger);
   } catch(e) { console.warn('observer init failed'); }
 }
-if (evolution && registry && ledger && stateEngine && observer) {
+// Evolution engine needs registry, ledger, stateEngine, observer
+if (registry && ledger && stateEngine && observer) {
   try {
-    evolution = new (require('../evolution-engine'))(registry, ledger, stateEngine, observer);
+    const EvolutionEngine = require('../evolution-engine');
+    evolution = new EvolutionEngine(registry, ledger, stateEngine, observer);
   } catch(e) { console.warn('evolution init failed'); }
 }
-if (simulation && ledger && stateEngine && observer && graph) {
+// Simulation needs ledger, stateEngine, observer, graph
+if (ledger && stateEngine && observer && graph) {
   try {
-    simulation = new (require('../simulation'))(ledger, stateEngine, observer, graph);
+    const FounderAbsenceSimulation = require('../simulation');
+    simulation = new FounderAbsenceSimulation(ledger, stateEngine, observer, graph);
   } catch(e) { console.warn('simulation init failed'); }
 }
-if (academy && registry && ledger) {
+// Academy needs registry and ledger
+if (registry && ledger) {
   try {
-    academy = new (require('../academy'))(registry, ledger);
+    const Academy = require('../academy');
+    academy = new Academy(registry, ledger);
   } catch(e) { console.warn('academy init failed'); }
+}
+// University needs registry, academy, ledger
+if (registry && academy && ledger) {
+  try {
+    const AgentAcademyUniversity = require('../university');
+    university = new AgentAcademyUniversity(registry, academy, ledger);
+  } catch(e) { console.warn('university init failed'); }
+}
+// Council needs registry, ledger, graph, observer
+if (registry && ledger && graph && observer) {
+  try {
+    const Council = require('../council');
+    council = new Council(registry, ledger, graph, observer);
+  } catch(e) { console.warn('council init failed'); }
+}
+// Workflow engine needs registry, ledger, graph
+if (registry && ledger && graph) {
+  try {
+    const WorkflowEngine = require('../workflow-engine');
+    workflowEngine = new WorkflowEngine(registry, ledger, graph);
+  } catch(e) { console.warn('workflowEngine init failed'); }
 }
 
 // ── Routes ────────────────────────────────────────────────────
