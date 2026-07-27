@@ -1,0 +1,13 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Say hello"
+    },
+    {
+      "role": "DevBot",
+      "text": "Hello! How can I help you today?"
+    }
+  ],
+  "turn": 1
+}
