@@ -54,6 +54,34 @@ economics = tryLoad('institutional-economics');
 tokenService = tryLoad('token-service');
 sandboxManager = tryLoad('sandbox-manager');
 
+
+// ── Instantiate classes that need dependencies ──────────────
+if (stateEngine && registry && ledger) {
+  try {
+    stateEngine = new (require('../state-engine'))(registry, ledger);
+  } catch(e) { console.warn('stateEngine init failed'); }
+}
+if (observer && graph && ledger) {
+  try {
+    observer = new (require('../observer'))(graph, ledger);
+  } catch(e) { console.warn('observer init failed'); }
+}
+if (evolution && registry && ledger && stateEngine && observer) {
+  try {
+    evolution = new (require('../evolution-engine'))(registry, ledger, stateEngine, observer);
+  } catch(e) { console.warn('evolution init failed'); }
+}
+if (simulation && ledger && stateEngine && observer && graph) {
+  try {
+    simulation = new (require('../simulation'))(ledger, stateEngine, observer, graph);
+  } catch(e) { console.warn('simulation init failed'); }
+}
+if (academy && registry && ledger) {
+  try {
+    academy = new (require('../academy'))(registry, ledger);
+  } catch(e) { console.warn('academy init failed'); }
+}
+
 // ── Routes ────────────────────────────────────────────────────
 app.get('/status', (req, res) => res.json({ online: true }));
 
