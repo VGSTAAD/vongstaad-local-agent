@@ -1,3 +1,5 @@
 node_modules/
 agent-service.js
 src/agent-service.js
+gemini-keys.js
+src/gemini-keys.js

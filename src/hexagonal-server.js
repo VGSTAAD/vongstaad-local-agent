@@ -14,14 +14,15 @@ app.use((req, res, next) => {
 });
 
 // ── Adapters (AI layer) ────────────────────────────────────
-const { WorkerGeminiAdapter } = require('./adapters/WorkerGeminiAdapter');
+const GeminiAdapter = require('./adapters/GeminiAdapter');
 const { FileRoomRepository } = require('./adapters/FileRoomRepository');
 const { LocalShellAdapter } = require('./adapters/LocalShellAdapter');
 const { SearchAdapter } = require('./adapters/SearchAdapter');
 const { AgentLoopService } = require('./services/AgentLoopService');
 
 const WORKER_URL = 'https://vongstaad-agent-worker.restless-pond-8b7b.workers.dev';
-const llmProvider = new WorkerGeminiAdapter(WORKER_URL, 'gemini-3-flash-preview');
+const GEMINI_KEYS = require('./gemini-keys');
+const llmProvider = new GeminiAdapter(GEMINI_KEYS, 'gemini-3-flash-preview');
 const roomRepo = new FileRoomRepository(__dirname + '/../agent-rooms');
 const shell = new LocalShellAdapter('/home/mhk/workspaces');
 const search = new SearchAdapter();
@@ -246,6 +247,55 @@ app.post('/token/revoke', (req, res) => {
   const { apiKey, tokenId } = req.body;
   if (apiKey !== 'vongstaad-dev-2026') return res.status(401).json({ error: 'Unauthorized' });
   return res.json(tokenService.revoke(tokenId));
+});
+
+// ── Command Execution (for Console tab) ─────────────────────
+const { execSync } = require('child_process');
+app.post('/run', (req, res) => {
+  const { apiKey, command, cwd } = req.body;
+  if (apiKey !== 'vongstaad-dev-2026') return res.status(401).json({ error: 'Unauthorized' });
+  try {
+    const output = execSync(command, { cwd: cwd || '/home/mhk/workspaces', encoding: 'utf-8', timeout: 30000 });
+    res.json({ ok: true, stdout: output, stderr: '', exitCode: 0 });
+  } catch (err) {
+    res.json({ ok: false, stdout: '', stderr: err.stderr || err.message, exitCode: err.status || 1 });
+  }
+});
+
+// ── Agent Loop (for Chat tab) ───────────────────────────────
+app.post('/agent-loop', async (req, res) => {
+  const { apiKey, roomId, task, agents, maxTurns } = req.body;
+  if (apiKey !== 'vongstaad-dev-2026') return res.status(401).json({ error: 'Unauthorized' });
+  try {
+    const messages = await agentLoop.runLoop(
+      roomId,
+      task,
+      agents || [{ name: 'DevBot' }, { name: 'ReviewerBot' }],
+      maxTurns || 4
+    );
+    res.json({ success: true, messages });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/agent-loop/extended', async (req, res) => {
+  const { apiKey, roomId, task, agents, maxIterations, terminationCondition } = req.body;
+  if (apiKey !== 'vongstaad-dev-2026') return res.status(401).json({ error: 'Unauthorized' });
+  try {
+    const allMessages = [{ role: 'system', text: task }];
+    let conditionMet = false;
+    const maxIter = maxIterations || 10;
+    for (let i = 0; i < maxIter && !conditionMet; i++) {
+      const agent = (agents || [{ name: 'DevBot' }])[i % (agents || [{ name: 'DevBot' }]).length];
+      const reply = await llmProvider.complete(agent.name, allMessages);
+      allMessages.push({ role: agent.name, text: reply });
+      if (terminationCondition && new RegExp(terminationCondition, 'i').test(reply)) conditionMet = true;
+    }
+    res.json({ success: true, conditionMet, iterations: allMessages.length - 1, messages: allMessages });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.listen(3001, () => console.log('Hexagonal institution server running on port 3001'));
