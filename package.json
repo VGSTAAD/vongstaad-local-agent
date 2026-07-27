@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "express": "^5.2.1",
-    "puppeteer": "^24.0.0"
+    "express": "^5.2.1"
   }
 }
