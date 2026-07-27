@@ -1,4 +1,153 @@
 {
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    {
+      "id": "APT-000",
+      "type": "appointment",
+      "label": "APT-000",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.172Z"
+    },
+    {
+      "id": "APT-001",
+      "type": "appointment",
+      "label": "APT-001",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.172Z"
+    },
+    {
+      "id": "APT-002",
+      "type": "appointment",
+      "label": "APT-002",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.173Z"
+    },
+    {
+      "id": "APT-003",
+      "type": "appointment",
+      "label": "APT-003",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.174Z"
+    },
+    {
+      "id": "APT-004",
+      "type": "appointment",
+      "label": "APT-004",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.174Z"
+    },
+    {
+      "id": "SEAT-000",
+      "type": "seat",
+      "label": "Institutional Observer",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.175Z"
+    },
+    {
+      "id": "SEAT-001",
+      "type": "seat",
+      "label": "Code Reviewer",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.175Z"
+    },
+    {
+      "id": "SEAT-002",
+      "type": "seat",
+      "label": "Chief Technology Officer",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.175Z"
+    },
+    {
+      "id": "SEAT-003",
+      "type": "seat",
+      "label": "Legal Reviewer",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.175Z"
+    },
+    {
+      "id": "SEAT-004",
+      "type": "seat",
+      "label": "Accounting Officer",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.175Z"
+    },
+    {
+      "id": "CONST-001",
+      "type": "constitution",
+      "label": "Vongstaad Constitution v1.0",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.175Z"
+    }
+  ],
+  "edges": [
+    {
+      "source": "APT-000",
+      "target": "SEAT-000",
+      "relationship": "occupies",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.172Z"
+    },
+    {
+      "source": "APT-001",
+      "target": "SEAT-002",
+      "relationship": "occupies",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.173Z"
+    },
+    {
+      "source": "APT-002",
+      "target": "SEAT-003",
+      "relationship": "occupies",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.173Z"
+    },
+    {
+      "source": "APT-003",
+      "target": "SEAT-004",
+      "relationship": "occupies",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.174Z"
+    },
+    {
+      "source": "APT-004",
+      "target": "SEAT-001",
+      "relationship": "occupies",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.174Z"
+    },
+    {
+      "source": "SEAT-000",
+      "target": "CONST-001",
+      "relationship": "governed_by",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.176Z"
+    },
+    {
+      "source": "SEAT-001",
+      "target": "CONST-001",
+      "relationship": "governed_by",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.176Z"
+    },
+    {
+      "source": "SEAT-002",
+      "target": "CONST-001",
+      "relationship": "governed_by",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.176Z"
+    },
+    {
+      "source": "SEAT-003",
+      "target": "CONST-001",
+      "relationship": "governed_by",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.176Z"
+    },
+    {
+      "source": "SEAT-004",
+      "target": "CONST-001",
+      "relationship": "governed_by",
+      "properties": {},
+      "createdAt": "2026-07-27T21:25:13.176Z"
+    }
+  ]
 }
