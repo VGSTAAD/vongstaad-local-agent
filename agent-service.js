@@ -9,6 +9,31 @@ class ILLMProvider {
 }
 
 class GeminiAdapter extends ILLMProvider {
+  constructor(workerUrl, apiKey, model = 'gemini-3-flash-preview') {
+    super();
+    this.workerUrl = workerUrl;
+    this.apiKey = apiKey;
+    this.model = model;
+  }
+
+  async complete(agentName, history) {
+    // Build a single prompt from the history
+    const prompt = history.map(m => `[${m.role}]: ${m.text}`).join('\n');
+    try {
+      const resp = await fetch(`${this.workerUrl}/gemini/complete`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, model: this.model })
+      });
+      const data = await resp.json();
+      return data.text || `[${agentName}] Error: ${data.error}`;
+    } catch (err) {
+      return `[${agentName}] Error: ${err.message}`;
+    }
+  }
+
+  // Old GeminiAdapter class replaced by worker relay – kept for compatibility
+
   constructor(apiKeys, model = 'gemini-3-flash-preview') {
     super();
     this.apiKeys = apiKeys;
