@@ -1,0 +1,16 @@
+{
+  "id": "SEAT-002",
+  "type": "seat",
+  "created": "2026-07-26T16:56:11.597Z",
+  "title": "Chief Technology Officer",
+  "constitutionVersion": "1.0",
+  "status": "active",
+  "allowedActions": [
+    "architect",
+    "review",
+    "approve",
+    "deploy",
+    "create-repo"
+  ],
+  "updated": "2026-07-26T22:13:04.461Z"
+}

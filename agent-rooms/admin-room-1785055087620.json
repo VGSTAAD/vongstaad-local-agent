@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Search the web for Heisenbug and explain what it is."
+    },
+    {
+      "role": "DevBot",
+      "text": "[SEARCH: Heisenbug explanation]"
+    },
+    {
+      "role": "system",
+      "text": "[Tool: Web Search]\nQuery: Heisenbug explanation\nResults:\n "
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "A Heisenbug is a type of software bug that seems to disappear or alter its behavior when you try to investigate or debug it. This term is a play on \"Heisenberg's Uncertainty Principle\" from quantum mechanics, which states that observing a system inevitably changes it.\n\nIn software, a Heisenbug might manifest because:\n*   **Timing dependencies:** Debugging tools often slow down the program, changing the timing enough to prevent the bug from occurring.\n*   **Memory access changes:** Adding logging or debugger statements might change memory layout or initialization, inadvertently fixing a memory-related bug.\n*   **Race conditions:** If the bug is due to a race condition between threads, the debugger's intervention can alter the thread scheduling and prevent the race from happening.\n\nEssentially, the act of trying to observe the bug changes the conditions necessary for the bug to appear, making it incredibly difficult to reproduce and fix."
+    },
+    {
+      "role": "DevBot",
+      "text": "A Heisenbug is a type of software bug that seems to disappear or alter its behavior when you try to investigate or debug it. The term is a humorous play on \"Heisenberg's Uncertainty Principle\" from quantum mechanics, which states that observing a system inevitably changes it.\n\nIn software, a Heisenbug might manifest due to:\n*   **Timing dependencies:** Debugging tools often slow down the program, changing the timing enough to prevent the bug from occurring.\n*   **Memory access changes:** Adding logging or debugger statements might change memory layout or initialization, inadvertently fixing a memory-related bug.\n*   **Race conditions:** If the bug is due to a race condition between threads, the debugger's intervention can alter the thread scheduling and prevent the race from happening.\n\nEssentially, the act of trying to observe the bug changes the conditions necessary for the bug to appear, making it incredibly difficult to reproduce and fix."
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "[SEARCH: Bohr bug explanation]"
+    },
+    {
+      "role": "system",
+      "text": "[Tool: Web Search]\nQuery: Bohr bug explanation\nResults:\n "
+    }
+  ],
+  "turn": 4
+}

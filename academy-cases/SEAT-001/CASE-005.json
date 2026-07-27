@@ -1,0 +1,14 @@
+{
+  "id": "CASE-005",
+  "description": "Build step added (npm build command)",
+  "input": {
+    "diff": "+ \"scripts\": { \"build\": \"webpack --mode production\" }"
+  },
+  "expected": {
+    "recommendation": "reject",
+    "violations": [
+      "Build step added",
+      "Constitutional violation"
+    ]
+  }
+}

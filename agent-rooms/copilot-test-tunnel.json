@@ -1,0 +1,13 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Say hello in French"
+    },
+    {
+      "role": "DevBot",
+      "text": "Bonjour"
+    }
+  ],
+  "turn": 1
+}

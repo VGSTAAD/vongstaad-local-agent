@@ -1,0 +1,11 @@
+{
+  "id": "CASE-001",
+  "description": "React added to auth-ui",
+  "input": {
+    "diff": "+ npm install react\n+ import React from 'react';\n- import Alpine from 'alpinejs';"
+  },
+  "expected": {
+    "recommendation": "reject",
+    "violations": ["React is forbidden", "Build step added"]
+  }
+}

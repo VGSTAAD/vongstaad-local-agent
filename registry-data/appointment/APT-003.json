@@ -1,0 +1,9 @@
+{
+  "id": "APT-003",
+  "type": "appointment",
+  "created": "2026-07-26T17:36:14.717Z",
+  "seatId": "SEAT-004",
+  "occupantId": "Gemini",
+  "status": "active",
+  "startedAt": "2026-07-26T00:00:00Z"
+}

@@ -1,0 +1,13 @@
+{
+  "caseId": "CASE-1785086801788-jo8w0q",
+  "timestamp": "2026-07-26T17:26:41.788Z",
+  "seatId": "SEAT-001",
+  "repo": "vongstaad-auth-ui",
+  "commit": "e8392e9acbf8f77c6227574f972304573c215dad",
+  "recommendation": "review",
+  "dcpId": "DCP-1785086801787",
+  "tags": [
+    "review-required"
+  ],
+  "status": "extracted"
+}

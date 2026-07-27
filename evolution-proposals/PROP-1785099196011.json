@@ -1,0 +1,53 @@
+{
+  "id": "PROP-1785099196011",
+  "title": "Add Chief Financial Officer seat",
+  "description": "Separate financial oversight from accounting operations",
+  "proposer": "Institutional Observer",
+  "type": "seat-creation",
+  "changes": {
+    "newSeat": "SEAT-005",
+    "title": "Chief Financial Officer"
+  },
+  "status": "ratified",
+  "createdAt": "2026-07-26T20:53:16.011Z",
+  "simulations": [
+    {
+      "id": "SIM-1785099530922",
+      "proposalId": "PROP-1785099196011",
+      "preSimStateId": "STATE-1785099530912",
+      "timestamp": "2026-07-26T20:58:50.922Z",
+      "observerReport": {
+        "complexity": {
+          "totalNodes": 17,
+          "totalEdges": 11,
+          "seatCount": 5,
+          "precedentCount": 5,
+          "densityRatio": "0.65",
+          "status": "healthy"
+        },
+        "drift": {
+          "status": "stable",
+          "warnings": []
+        }
+      },
+      "result": "passed"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "EVAL-1785099530954",
+      "proposalId": "PROP-1785099196011",
+      "timestamp": "2026-07-26T20:58:50.954Z",
+      "simulations": 1,
+      "allPassed": true,
+      "recommendation": "approve",
+      "comments": "All simulations passed. Ready for ratification."
+    }
+  ],
+  "ratification": {
+    "id": "RAT-1785099530985",
+    "proposalId": "PROP-1785099196011",
+    "authorizedBy": "Founder",
+    "timestamp": "2026-07-26T20:58:50.985Z"
+  }
+}

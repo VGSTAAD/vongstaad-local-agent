@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Search the web for Heisenbug and explain what it is."
+    },
+    {
+      "role": "DevBot",
+      "text": "[SEARCH: Heisenbug]"
+    },
+    {
+      "role": "system",
+      "text": "[Tool: Web Search]\nQuery: Heisenbug\nResults:\nIn computer programming jargon, a heisenbug is a software bug that seems to disappear or alter its behavior when one attempts to study it. The term is a pun on the name of Werner Heisenberg, the physicist who first introduced the uncertainty principle, and it is a reference to the observer effect, which states that the act of observing a system inevitably alters its state. In electronics, the traditional term is probe effect, where attaching a test probe to a device changes its behavior. The term has been criticized because it confuses Heisenberg's uncertainty principle with the observer effect in quantum mechanics, which are two different concepts. Similar terms, such as \"bohrbug\", \"mandelbug\", \"hindenbug\", and \"schrödinbug\" have been occasionally proposed for other kinds of unusual software bugs, sometimes in jest."
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "[ReviewerBot] Error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 35.109952376s."
+    },
+    {
+      "role": "DevBot",
+      "text": "[DevBot] Error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 34.692726948s."
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "[ReviewerBot] Error: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 34.546724847s."
+    }
+  ],
+  "turn": 4
+}

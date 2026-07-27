@@ -1,0 +1,21 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Say hello"
+    },
+    {
+      "role": "DevBot",
+      "text": "[DevBot] Error: All Gemini keys exhausted (quota or network error)."
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "[ReviewerBot] Error: All Gemini keys exhausted (quota or network error)."
+    },
+    {
+      "role": "DevBot",
+      "text": "[DevBot] Error: All Gemini keys exhausted (quota or network error)."
+    }
+  ],
+  "turn": 3
+}

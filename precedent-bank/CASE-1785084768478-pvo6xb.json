@@ -1,0 +1,13 @@
+{
+  "caseId": "CASE-1785084768478-pvo6xb",
+  "timestamp": "2026-07-26T16:52:48.478Z",
+  "seatId": "SEAT-001",
+  "recommendation": "review",
+  "dcpId": "DCP-1785084768476",
+  "tags": [
+    "review-required",
+    "violation"
+  ],
+  "status": "extracted",
+  "violations": []
+}

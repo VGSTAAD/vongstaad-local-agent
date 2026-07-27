@@ -1,0 +1,13 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Say hello"
+    },
+    {
+      "role": "DevBot",
+      "text": "[DevBot] I received the context (1 messages). I will now Say hello. (This is a mock response. Real Gemini integration is ready when you provide API keys.)"
+    }
+  ],
+  "turn": 1
+}

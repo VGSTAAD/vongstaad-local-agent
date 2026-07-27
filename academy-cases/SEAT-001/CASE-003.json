@@ -1,0 +1,14 @@
+{
+  "id": "CASE-003",
+  "description": "Hexagonal violation: Direct cross-wing database import",
+  "input": {
+    "diff": "+ import { D1Database } from '../auth-wing/database';\n+ const db = new D1Database();"
+  },
+  "expected": {
+    "recommendation": "reject",
+    "violations": [
+      "Hexagonal boundary violation",
+      "Cross-wing import"
+    ]
+  }
+}

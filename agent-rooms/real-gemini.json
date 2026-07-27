@@ -1,0 +1,21 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "Say hello in French and explain what you can do"
+    },
+    {
+      "role": "DevBot",
+      "text": "[DevBot] Error: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project."
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "[ReviewerBot] Error: models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods."
+    },
+    {
+      "role": "DevBot",
+      "text": "Bonjour !\n\nJe suis un grand modèle linguistique, entraîné par Google. Je peux vous aider avec une multitude de tâches, comme :\n\n*   **Répondre à vos questions** sur presque tous les sujets.\n*   **Générer du texte créatif** : des histoires, des poèmes, des scripts, des e-mails, du code, des paroles de chansons, etc.\n*   **Traduire des langues**.\n*   **Résumer des documents longs**.\n*   **Écrire différents types de contenu créatif**.\n*   **Fournir des informations** et des explications.\n*   **Aider à la rédaction** et à la relecture.\n*   **Brainstormer des idées**.\n\nN'hésitez pas à me demander ce que vous voulez !"
+    }
+  ],
+  "turn": 3
+}
