@@ -1,5 +1,5 @@
 const WORKER_URL = 'https://vongstaad-agent-worker.restless-pond-8b7b.workers.dev';
-const LOCAL_API = 'http://localhost:3000';
+const LOCAL_API = 'http://localhost:3001';
 const API_KEY = 'vongstaad-dev-2026';
 const POLL_INTERVAL = 3000;
 
