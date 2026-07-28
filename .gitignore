@@ -1,5 +1,26 @@
+# Dependencies
 node_modules/
-agent-service.js
-src/agent-service.js
-gemini-keys.js
+
+# Environment & secrets
+.env
+*.env
 src/gemini-keys.js
+
+# Institutional data (append‑only history)
+# After initial bootstrap, this file should be backed up, not versioned.
+institution-facts.jsonl
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Backup archives
+*.tar.gz
+*.zip
