@@ -24,3 +24,4 @@ Thumbs.db
 # Backup archives
 *.tar.gz
 *.zip
+agent-service.js
