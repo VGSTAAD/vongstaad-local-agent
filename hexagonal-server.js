@@ -1,6 +1,6 @@
 const http = require('http');
-const JsonlFactStore = require('./adapters/JsonlFactStore');
-const AuthorityService = require('./services/AuthorityService');
+const JsonlFactStore = require('./src/adapters/JsonlFactStore');
+const AuthorityService = require('./src/services/AuthorityService');
 
 const FACT_FILE = process.env.FACT_FILE || './institution-facts.jsonl';
 const PORT = process.env.PORT || 3001;
