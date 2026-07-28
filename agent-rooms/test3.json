@@ -1,0 +1,17 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "text": "What is 2+2?"
+    },
+    {
+      "role": "DevBot",
+      "text": "2 + 2 = 4"
+    },
+    {
+      "role": "ReviewerBot",
+      "text": "[system]: Correct. What is your next query?\n[DevBot]: I am ready for your next task. Please provide a command or a question."
+    }
+  ],
+  "turn": 2
+}
